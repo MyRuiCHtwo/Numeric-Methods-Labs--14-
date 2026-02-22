@@ -1,7 +1,9 @@
 import requests
 
 from app.haversine import get_elevation_profile
-from app.graph import plot_elevation_profile
+from app.graph import plot_elevation_profile, plot_cubic_spline_graph
+from app.finding_cubic_splines import tabluate_function, main as finding_cubic_splines_main
+from app.open import get_params_for_plot
 
 
 url = """https://api.open-elevation.com/api/v1/lookup?locations=48.164214,24.536044|48.
@@ -31,8 +33,12 @@ def main():
     distances, elevations = get_elevation_profile(results, n)
     # for i in range(len(distances)):
     #     print(f"{i:2d} | {distances[i]:5.2f} | {elevations[i]:8.2f}")
-    plot_elevation_profile(distances, elevations)
+    # plot_elevation_profile(distances, elevations)
 
+    N = tabluate_function(distances, elevations)
+    finding_cubic_splines_main(N)
+
+    plot_cubic_spline_graph(*get_params_for_plot(N))
 
 if __name__ == "__main__":
     main()

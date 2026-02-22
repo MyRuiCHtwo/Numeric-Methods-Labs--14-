@@ -22,7 +22,6 @@ def get_elevation_profile(results, n) -> tuple[list[float], list[float]]:
         
         # Фільтр: якщо стрибок більше 500м, вважаємо точку помилковою
         if d > 500:
-            print(f"Пропущено аномальну точку №{i+1}: стрибок {d/1000:.2f} км")
             continue 
             
         distances.append(distances[-1] + d)
