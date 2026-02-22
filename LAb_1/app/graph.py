@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 
-from LAb_1.app.haversine import get_elevation_profile
-
 def plot_elevation_profile(distances, elevations) -> None:
     plt.figure(figsize=(10, 5))
     plt.plot(distances, elevations, marker='o')

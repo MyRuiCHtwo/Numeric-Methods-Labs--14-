@@ -1,6 +1,6 @@
 import requests
 
-from LAb_1.app.haversine import get_elevation_profile
+from app.haversine import get_elevation_profile
 from app.graph import plot_elevation_profile
 
 
