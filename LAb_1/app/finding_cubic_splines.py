@@ -13,12 +13,12 @@ def tabluate_function(distances, elevations):
     # Вказуємо бажану кількість вузлів (наприклад, 10)
     real_distances = len(full_x)
 
-    target_nodes = 20
+    target_nodes = 15
 
     n_nodes = min(target_nodes, real_distances)
 
     # Вибираємо індекси так, щоб вони були рівномірно розподілені
-    indices = np.linspace(0, real_distances - 1, target_nodes, dtype=int)
+    indices = np.linspace(0, n_nodes - 1, target_nodes, dtype=int)
 
     # Створюємо нові вузли для розрахунку сплайна
     x = full_x[indices]

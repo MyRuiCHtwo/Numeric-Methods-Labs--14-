@@ -11,10 +11,10 @@ def plot_elevation_profile(distances, elevations) -> None:
 
 def plot_cubic_spline_graph(x, y, xm, ym, s, eps) -> None:
     plt.figure(figsize=(10, 6))
-    plt.title('Cubic Spline Interpolation of Data Points')
+    plt.title('Інтерполяція кубічним сплайном')
 
     
-    plt.plot(x, y, 'g--', label='Оригінальний профіль (ym)', linewidth=3, alpha=0.4)
+    plt.plot(xm, ym, 'g--', label='Початкова функція f(x)', linewidth=3, alpha=0.4)
 
     plt.plot(xm, eps, 'r:', label='Похибка ε')
 
