@@ -9,7 +9,7 @@ def plot_elevation_profile(distances, elevations) -> None:
     plt.grid()
     plt.show()
 
-def plot_cubic_spline_graph(x, y, xm, ym, s, eps) -> None:
+def plot_cubic_spline_graph(x, y, xm, ym, s, eps,) -> None:
     plt.figure(figsize=(10, 6))
     plt.title('Інтерполяція кубічним сплайном')
 
@@ -17,8 +17,8 @@ def plot_cubic_spline_graph(x, y, xm, ym, s, eps) -> None:
     plt.plot(xm, ym, 'g--', label='Початкова функція f(x)', linewidth=3, alpha=0.4)
 
     plt.plot(xm, eps, 'r:', label='Похибка ε')
-
-    plt.plot(xm, s, 'b-', label='Кубічний сплайн S(x)', linewidth=1)
+ 
+    plt.plot(xm, s, 'b', label='Кубічний сплайн S(x)', linewidth=2)
 
     plt.scatter(x, y, color='red', zorder=5, label='Вузли інтерполяції')
 
