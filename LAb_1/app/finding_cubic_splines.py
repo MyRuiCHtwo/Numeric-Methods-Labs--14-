@@ -13,7 +13,7 @@ def tabluate_function(distances, elevations):
     # Вказуємо бажану кількість вузлів (наприклад, 10)
     real_distances = len(full_x)
 
-    target_nodes = 20
+    target_nodes = 10
 
     n_nodes = min(target_nodes, real_distances)
 
