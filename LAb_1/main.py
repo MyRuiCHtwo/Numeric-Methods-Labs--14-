@@ -24,21 +24,23 @@ def main():
     n = len(results)
     print("Number of cells:", n)
 
-    # print("\nTablation of cells:\n")
-    # print("№ | Latitude | Longitude | Elevation (m)")
+    print("\nTablation of cells:\n")
+    print("№ | Latitude | Longitude | Elevation (m)")
 
-    # for i, cell in enumerate(results, start=1):
-    #     print(f"""{i:2d} | {cell["latitude"]:.6f} | {cell["longitude"]:.6f} | {cell["elevation"]:.2f}""")
+    for i, cell in enumerate(results, start=1):
+        print(f"""{i:2d} | {cell["latitude"]:.6f} | {cell["longitude"]:.6f} | {cell["elevation"]:.2f}""")
 
     distances, elevations = get_elevation_profile(results, n)
-    # for i in range(len(distances)):
-    #     print(f"{i:2d} | {distances[i]:5.2f} | {elevations[i]:8.2f}")
-    # plot_elevation_profile(distances, elevations)
+    for i in range(len(distances)):
+        print(f"{i:2d} | {distances[i]:5.2f} | {elevations[i]:8.2f}")
+    plot_elevation_profile(distances, elevations)
 
     N = tabluate_function(distances, elevations)
     finding_cubic_splines_main(N)
 
     plot_cubic_spline_graph(*get_params_for_plot(N))
+
+
 
 if __name__ == "__main__":
     main()

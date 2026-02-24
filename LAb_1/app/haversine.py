@@ -27,8 +27,6 @@ def get_elevation_profile(results, n) -> tuple[list[float], list[float]]:
         distances.append(distances[-1] + d)
         elevations.append(results[i]["elevation"])
         last_valid_idx = i
-    # print("\nТабуляція (відстань, висота):")
-    # print("№ | Distance (m) | Elevation (m)")
-  
+    
     return distances, elevations
         
