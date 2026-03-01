@@ -1,5 +1,3 @@
-import csv
-
 
 def get_separated_differences(x, y):
     n = len(x)
