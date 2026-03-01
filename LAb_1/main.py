@@ -33,7 +33,7 @@ def main():
     distances, elevations = get_elevation_profile(results, n)
     for i in range(len(distances)):
         print(f"{i:2d} | {distances[i]:5.2f} | {elevations[i]:8.2f}")
-    # plot_elevation_profile(distances, elevations)
+    plot_elevation_profile(distances, elevations)
 
     N = tabluate_function(distances, elevations)
     finding_cubic_splines_main(N)
