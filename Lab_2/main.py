@@ -27,7 +27,7 @@ def main():
     # coef_for_newton = get_separated_differences(x, y)
     # print("Coefficients for Newton's Interpolation:", coef_for_newton)
 
-    # n_target = 2000
+    # n_target = 1000
     # prediction = get_newton_polynomial(n_target, x, coef_for_newton)
     # print(f"Predicted FPS for {n_target} objects: {prediction:.2f}")
 

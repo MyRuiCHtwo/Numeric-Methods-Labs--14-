@@ -27,7 +27,8 @@ def plot_graph_fps(x, y):
     plt.scatter(x, y, color='black', s=25, zorder=5, label='Експериментальні дані')
        
 
-    plt.axhline(60, color='darkgreen', linestyle='-.', alpha=0.6, label='Поріг комфорту (60 FPS)')
+    plt.axvline(1300, color='red', linestyle='--', linewidth=2, label=f'Межа стабільності (n={1300})')
+    plt.text(1300 + 50, 150, f'Макс. об\'єктів: {1300}', color='red', fontweight='bold', rotation=90, verticalalignment='center')
 
     plt.ylim(-50, 250) # Обмежуємо по Y, щоб "дикі" коливання не стискали графік
     plt.title('Порівняльний аналіз інтерполяції FPS при різній кількості вузлів', fontsize=14)
