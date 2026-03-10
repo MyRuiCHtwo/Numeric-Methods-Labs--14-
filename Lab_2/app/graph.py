@@ -5,30 +5,30 @@ from app.newton_interpolation import get_newton_polynomial
 from app.separated_differences import get_separated_differences
 
 
-def plot_graph_fps(x, y):
+def plot_graph_fps(x, y) -> None:
     x_new = np.linspace(min(x), max(x), 1000)
    
     plt.figure(figsize=(12, 8))
 
     configs = [
-        (5, 'blue', '-', 2),   # n=5: основна модель
-        (10, 'green', '--', 1.5), # n=10: середня деталізація
-        (20, 'red', ':', 1.5)    # n=20: високий степінь (ефект Рунге)
+        (5, 'blue'),   # n=5: основна модель
+        (10, 'green'), # n=10: середня деталізація
+        (20, 'red')    # n=20: високий степінь (ефект Рунге)
     ]
 
-    for n, color, linestyle, linewidth in configs:
+    for n, color in configs:
         x_n = x[:n]
         y_n = y[:n]
 
         coefs = get_separated_differences(x_n, y_n)
         y_new = [get_newton_polynomial(xi, x_n, coefs) for xi in x_new]
 
-        plt.plot(x_new, y_new, label=f'Многочлен Ньютона (n={n})',color=color, linestyle=linestyle, linewidth=linewidth)
+        plt.plot(x_new, y_new, label=f'Многочлен Ньютона (n={n})',color=color)
     plt.scatter(x, y, color='black', s=25, zorder=5, label='Експериментальні дані')
        
 
     plt.axvline(1300, color='red', linestyle='--', linewidth=2, label=f'Межа стабільності (n={1300})')
-    plt.text(1300 + 50, 150, f'Макс. об\'єктів: {1300}', color='red', fontweight='bold', rotation=90, verticalalignment='center')
+    plt.text(1300 + 50, 150, f'Макс. об\'єктів для 60+ fps: {1300}', color='red', fontweight='bold', rotation=90, verticalalignment='center')
 
     plt.ylim(-50, 250) # Обмежуємо по Y, щоб "дикі" коливання не стискали графік
     plt.title('Порівняльний аналіз інтерполяції FPS при різній кількості вузлів', fontsize=14)
