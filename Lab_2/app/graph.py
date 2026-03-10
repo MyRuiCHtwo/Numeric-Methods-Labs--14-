@@ -36,7 +36,6 @@ def plot_graph_fps(x, y):
     plt.ylabel('FPS', fontsize=12)
     plt.grid(True, which='both', linestyle='--', alpha=0.5)
     plt.legend(loc='upper right')
-    
     plt.show()
 
 
