@@ -36,22 +36,17 @@ def plot_dispersion(variances):
     plt.xlabel('Ступінь полінома (m)')
     plt.ylabel('Дисперсія (Variance)')
     plt.xticks(range(1, len(variances) + 1))
-
-    optimal_m = variances.index(min(variances)) + 1
-    plt.annotate(f'Оптимальне m={optimal_m}', 
-             xy=(optimal_m, variances[optimal_m-1]), 
-             xytext=(optimal_m + 0.5, variances[optimal_m-1] + 10),
-             arrowprops=dict(facecolor='black', shrink=0.05))
+  
     plt.grid(True)
     plt.show(block=True)
 
 
-def plot_prognose(x_future, y_future, x, y):
+def plot_prognose(x_future, y_future, x, y, m):
    
 
     plt.figure(figsize=(10, 6))
     plt.scatter(x, y, color="black")
-    plt.plot(x, y, color="red", label='Фактичні дані')
+    plt.plot(x, y, color="red", label=f'Фактичні дані (m = {m})')
     plt.scatter(x_future, y_future, color="blue", marker='o')
     plt.plot(x_future, y_future, color="blue", linestyle='--', label='Прогноз')
 

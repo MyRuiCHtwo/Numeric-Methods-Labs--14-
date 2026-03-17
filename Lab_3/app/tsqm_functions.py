@@ -1,7 +1,6 @@
 import numpy as np
 
 def normalize_x(x):
-    """Normalize x values to [-1, 1] range for better numerical stability."""
     x_array = np.array(x)
     x_min = np.min(x_array)
     x_max = np.max(x_array)
@@ -12,7 +11,6 @@ def normalize_x(x):
     return x_normalized, x_min, x_range
 
 def denormalize_x(x_normalized, x_min, x_range):
-    """Convert normalized x values back to original range."""
     return (x_normalized + 1) * x_range / 2 + x_min
 
 def form_matrix_A(x, m):
@@ -37,24 +35,22 @@ def gauss_solve(A, b):
     b = b.astype(float)
     n = len(A)
     
-    # Forward elimination with partial pivoting
+    
     for k in range(n):
-        # Find pivot
+        
         max_row = max(range(k, n), key=lambda i: abs(A[i][k]))
         if abs(A[max_row][k]) < 1e-14:
             raise ValueError(f"Matrix is singular or nearly singular at column {k}")
         
-        # Swap rows
         A[k], A[max_row] = A[max_row].copy(), A[k].copy()
         b[k], b[max_row] = b[max_row], b[k]
         
-        # Eliminate below
         for i in range(k+1, n):
             factor = A[i][k] / A[k][k]
             A[i] = A[i] - factor * A[k]
             b[i] = b[i] - factor * b[k]
     
-    # Back substitution
+   
     x = np.zeros(n)
     for i in range(n-1, -1, -1):
         if abs(A[i][i]) < 1e-14:
