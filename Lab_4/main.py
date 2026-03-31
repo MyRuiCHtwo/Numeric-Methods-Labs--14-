@@ -1,19 +1,15 @@
 import numpy as np
 
 def M(t):
-       
-        return 50 * np.exp(-0.1 * t) + 5 * np.sin(t)
+    return 50 * np.exp(-0.1 * t) + 5 * np.sin(t)
 
 def dM_exact(t):
-  
     return -5 * np.exp(-0.1 * t) + 5 * np.cos(t)
 
 def central_diff(f, x, h):
-       
-        return (f(x + h) - f(x - h)) / (2 * h)
+    return (f(x + h) - f(x - h)) / (2 * h)
 
 def main():
-   
     print("              Завдання 1: Аналітичне розв'язання")
     print("-" * 70)
    
