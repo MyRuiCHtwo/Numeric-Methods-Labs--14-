@@ -1,29 +1,27 @@
 import numpy as np
 
 def M(t):
-        # Функція вологості ґрунту
+       
         return 50 * np.exp(-0.1 * t) + 5 * np.sin(t)
 
 def dM_exact(t):
-    # Явний вираз для першої похідної
+  
     return -5 * np.exp(-0.1 * t) + 5 * np.cos(t)
 
 def central_diff(f, x, h):
-        # Формула центральної різниці
+       
         return (f(x + h) - f(x - h)) / (2 * h)
 
 def main():
-    # 1. Аналітичне розв'язання
+   
     print("              Завдання 1: Аналітичне розв'язання")
     print("-" * 70)
-    # Задаємо точку x0 (t0). Візьмемо t0 = 1.0 як у прикладі
+   
     t0 = 1.0
     exact_val = dM_exact(t0)
     print(f"Точне значення похідної в точці t0={t0}: {exact_val}")
     print("-" * 70)
-
-    # 2. Дослідження залежності похибки від кроку h
-    # Генеруємо масив значень h від 10^-20 до 10^3
+   
     h_values = np.logspace(-20, 3, 1000)
     errors = []
 
@@ -41,15 +39,13 @@ def main():
     print(f"Оптимальний крок h0: {h0:.1e}")
     print(f"Досягнута точність R0: {R0:.1e}")
     print("-" * 70)
-
-    # 3. Приймаємо значення кроку h = 10^-3
+  
     h = 1e-3
-
-    # 4. Обчислення значення похідної з кроками h та 2h
+   
     y_prime_h = central_diff(M, t0, h)
     y_prime_2h = central_diff(M, t0, 2 * h)
 
-    # 5. Обчислення значення похибки R1
+  
     R1 = abs(y_prime_h - exact_val)
 
     print("\n      Завдання 3-5: Обчислення похідної та похибки для h=1e-3")
@@ -58,7 +54,6 @@ def main():
     print(f"Похибка при заданому кроці h={h} (R1): {R1:.1e}")
     print("-" * 70)
 
-    # 6. Метод Рунге-Ромберга
     y_prime_R = y_prime_h + (y_prime_h - y_prime_2h) / 3
     R2 = abs(y_prime_R - exact_val)
 
@@ -69,8 +64,6 @@ def main():
     print(f"Похибка (R2): {R2:.1e}")
     print("-" * 70)
 
-    # 7. Метод Ейткена
-    # Обчислюємо похідну з кроком 4h
     y_prime_4h = central_diff(M, t0, 4 * h)
 
     denominator = 2 * y_prime_2h - (y_prime_4h + y_prime_h)
@@ -82,7 +75,6 @@ def main():
         y_prime_E = ((y_prime_2h**2) - y_prime_4h * y_prime_h) / denominator
         R3 = abs(y_prime_E - exact_val)
         
-        # Оцінка порядку точності
         ratio = abs((y_prime_4h - y_prime_2h) / (y_prime_2h - y_prime_h))
         p = (1 / np.log(2)) * np.log(ratio)
         
