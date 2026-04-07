@@ -1,5 +1,7 @@
 import numpy as np
 
+from app.graph import step_error_dependence
+
 def M(t):
     return 50 * np.exp(-0.1 * t) + 5 * np.sin(t)
 
@@ -31,6 +33,8 @@ def main():
 
     print("\n      Завдання 2: Дослідження залежності похибки від кроку h:")
     print("-" * 70)
+
+    step_error_dependence(h_values, errors)
 
     print(f"Оптимальний крок h0: {h0:.1e}")
     print(f"Досягнута точність R0: {R0:.1e}")
