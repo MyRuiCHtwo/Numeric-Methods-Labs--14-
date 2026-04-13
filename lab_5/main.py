@@ -9,8 +9,6 @@ def main():
     a, b = 0, 24
     N = 1000
 
-
-
     I0, N_values, errors, n_opt, eps_opt = N_error_dependence(a, b)
     I, x, y = sinpson_method(f, a, b, N)
 
@@ -46,7 +44,7 @@ def main():
     print(f"  Похибка методу Ейткена: {epsA:.2e}\n")
 
     I_ad = adaptive_simpson(f, a, b, 1e-12)
-    print(f"  Результат адаптивного методу Симпсона: {I_ad:.15f}")
+    print(f"  Результат адаптивного методу Сімпсона: {I_ad:.15f}")
     
 
 
