@@ -24,9 +24,10 @@ def main():
 
     X_calc = solve_SLAE(n, B, L, U)
 
-    # error = LU_error(n, A, X_calc, B)
-    # print(f"Error: {error:.18f}")
+    error = LU_error(n, A, X_calc, B)
+    print(f"\nError: {error:.18f}")
 
+    print()
     clarification_SLAE(X_calc, n, A, B, L, U)
 
     

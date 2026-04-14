@@ -23,7 +23,7 @@ def clarification_SLAE(X_calc, n, A, B, L, U):
 
         if cur_error <= eps or cur_error >= previous_error:
             if cur_error >= previous_error and iter > 0:
-                print("Похибка перестала зменшуватися (межа машинної точності).")
+                print("Похибка перестала зменшуватися.")
             break
 
         previous_error = cur_error

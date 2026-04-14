@@ -2,7 +2,7 @@ import numpy as np
 
 from app.functions.funcs import f, sinpson_method, N_error_dependence, adaptive_simpson
 from app.graphs import show_N_error_dependence, show_server_load_function
-f
+
 
 
 def main():
