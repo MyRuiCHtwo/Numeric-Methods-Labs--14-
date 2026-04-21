@@ -10,7 +10,7 @@ def main():
     n = 100
     x_idial = 2.5
     A = np.random.uniform(1, 100 , (n, n))
-    for i in range(n):
+    for i in range(n): 
         A[i, i] += 5000.0
     X = np.full(n, x_idial)
 

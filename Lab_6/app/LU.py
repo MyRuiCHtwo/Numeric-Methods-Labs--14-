@@ -56,10 +56,9 @@ def solve_SLAE(n, B, L, U):
     np.savetxt("Lab_6/app/data/X_calc.txt", res, fmt="%.18f")
     return res
 
- 
 
 
-def A_X_product(n, A, X):
+def A_X_product(n, A, X): 
     AX = np.zeros(n)
     for i in range(n):
         AX[i] = sum(A[i, j] * X[j] for j in range(n))
