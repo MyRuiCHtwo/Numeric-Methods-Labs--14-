@@ -54,7 +54,7 @@ def meth_simple_iteration(n, A, B, X0, tau, eps=1e-14, max_iter=100000):
     return X1, max_iter
 
 
-def math_Yacobi(n, A, B, X0, eps=1e-14, max_iter=10000):
+def math_Yacobi(n, A, B, X0, eps=1e-14, max_iter=100000):
     X1 = np.copy(X0)
     for k in range(1, max_iter+  1):
         x_new = np.zeros(n)
